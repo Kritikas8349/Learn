@@ -540,7 +540,7 @@
   .about-section {
     flex-direction: column;
     text-align: center;
-    padding: 100px 6% 0 6%;
+    padding: 50px 6% 0 6%;
     gap: 40px;
   }
 
@@ -591,7 +591,7 @@
     height: auto;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
   }
 
   .about-image-frame img {
@@ -602,6 +602,7 @@
 
   .about-title {
     font-size: 28px;
+    text-align: start;
   }
 
   .learn-btn {
@@ -623,14 +624,19 @@
     gap: 35px;
   }
 
+  .about-tag, .about-quote{
+    text-align: start;
+  }
+
   .about-title {
     font-size: 26px;
+    text-align: start;
   }
 
   .about-text,
   .about-list li {
     font-size: 14.5px;
-    text-align: center;
+    text-align: start;
   }
 
   .about-image-frame {
@@ -638,7 +644,7 @@
     height: auto;           /* auto adjust according to image */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
   }
 
   .about-image-frame img {
@@ -656,6 +662,10 @@
 
   .about-title {
     font-size: 24px;
+  }
+
+  .about-tag, .about-quote{
+    text-align: start;
   }
 
   .about-image-frame {
@@ -697,7 +707,7 @@
     height: auto;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
   }
 
   .about-image-frame img {
@@ -786,10 +796,13 @@
 @media (max-width: 600px) {
   .offer-title{
     font-size: 22px;
+    text-align: start;
+    margin-left: 30px;
+    
   }
 
   .offer-section{
-    padding: 120px 0 80px 0;
+    padding: 80px 0 80px 0;
   }
 
   .offer-grid {

@@ -8,7 +8,6 @@ const ContactPopup = ({ isOpen, onClose }) => {
     email: "",
     countryCode: "",
     phone: "",
-    message: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -25,14 +24,13 @@ const ContactPopup = ({ isOpen, onClose }) => {
     setLoading(true);
 
     const scriptURL =
-      "https://script.google.com/macros/s/AKfycbwQUuf7TBIVLaCRhl81TXvJs4-65MIDX4dXRPRONPbwO9cjasiogSDlqd1gfJ2wUX6oSQ/exec";
+      "https://script.google.com/macros/s/AKfycbw5j7uyctTxrAACmuaPHHmq2Juf0dEgLs9ncUspDnxdfScudoozipyo3cpVb0xnMbfBmw/exec";
 
     const googleForm = new FormData();
     googleForm.append("fullName", formData.fullName);
     googleForm.append("email", formData.email);
     googleForm.append("countryCode", formData.countryCode);
     googleForm.append("phone", formData.phone);
-    googleForm.append("message", formData.message);
 
     try {
       const response = await fetch(scriptURL, {
@@ -104,15 +102,6 @@ const ContactPopup = ({ isOpen, onClose }) => {
                   style={{ width: "70%" }}
                 />
               </div>
-
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                rows="4"
-                className="message"
-                value={formData.message}
-                onChange={handleChange}
-              ></textarea>
 
               <button type="submit" className="popup-submit" disabled={loading}>
                 {loading ? "Sending..." : "Submit →"}
