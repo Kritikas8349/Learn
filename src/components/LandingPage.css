@@ -28,8 +28,18 @@
     padding: 0 24px;
   
     color: #ffffff;
-    z-index: 5;
+    /* z-index: 2000; */
   }
+
+
+  .navbar {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000; /* 🔥 always above blur */
+  }
+  
   
   
   
@@ -504,7 +514,7 @@
 /* Large laptops / Tablets landscape (1200px) */
 @media (max-width: 1200px) {
   .about-section {
-    padding: 100px 6% 0 6%;
+    padding: 80px 6% 0 6%;
     gap: 40px;
   }
 
@@ -571,7 +581,7 @@
 /* Tablets Portrait / Large Phones (768px) */
 @media (max-width: 768px) {
   .about-section {
-    padding: 100px 5% 0 5%;
+    padding: 80px 5% 0 5%;
     gap: 35px;
   }
 
@@ -609,7 +619,7 @@
 /* Small Phones (600px) */
 @media (max-width: 600px) {
   .about-section {
-    padding: 100px 5% 0 5%;
+    padding: 60px 5% 0 5%;
     gap: 35px;
   }
 
@@ -620,7 +630,7 @@
   .about-text,
   .about-list li {
     font-size: 14.5px;
-    text-align: start;
+    text-align: center;
   }
 
   .about-image-frame {
@@ -641,7 +651,7 @@
 /* Extra Small Phones (480px) */
 @media (max-width: 480px) {
   .about-section {
-    padding: 100px 4% 0 4%;
+    padding: 50px 4% 0 4%;
   }
 
   .about-title {
@@ -909,7 +919,8 @@
 
 @media (max-width: 480px) {
   .audience-white-section {
-    padding: 50px 0;
+    padding: 30px 0;
+    text-align: start;
   }
 
   .audience-white-title {
@@ -998,6 +1009,11 @@
 @media (max-width: 768px) {
   .faq-title {
     font-size: 28px;
+    text-align: start;
+  }
+
+  .faq-subtitle {
+    text-align: start;
   }
 
   .faq-question {
@@ -1108,15 +1124,15 @@
 @media (max-width: 600px) {
   .footer-container {
     grid-template-columns: 1fr;
-    text-align: center;
+    text-align: start;
   }
 
   .footer-logo {
-    justify-content: center;
+    justify-content: start;
   }
 
   .footer-links ul {
-    align-items: center;
+    align-items: start;
   }
 
   .footer-btn {

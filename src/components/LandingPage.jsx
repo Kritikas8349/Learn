@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./LandingPage.css";
+import ContactPopup from "./ContactPopup";
 import {
   FaBookOpen,
   FaChartLine,
@@ -12,13 +13,6 @@ import {
 
 
 
-const scrollToSection = (id) => {
-  const section = document.getElementById(id);
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-    setMenuOpen(false); 
-  }
-};
 
 
 const faqs = [
@@ -53,14 +47,34 @@ const faqs = [
 const LandingPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const drawerRef = useRef(null);
+  const [activeIndex] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const toggleFAQ = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
+  // ✅ yahan lao
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setMenuOpen(false); // ✅ NOW WORKS
   };
 
-  // close drawer on outside click
+  // ✅ yahan lao
+  useEffect(() => {
+    const closeOnScroll = () => {
+      setMenuOpen(false);
+    };
+
+    if (menuOpen) {
+      window.addEventListener("scroll", closeOnScroll);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", closeOnScroll);
+    };
+  }, [menuOpen]);
+
+  // outside click effect (ye already sahi hai)
   useEffect(() => {
     const handleClick = (e) => {
       if (
@@ -98,7 +112,7 @@ const LandingPage = () => {
 
         </ul>
 
-        <button className="nav-btn desktop-only">Sign Up Now</button>
+        <button className="nav-btn desktop-only" onClick={() => setIsOpen(true)}>Sign Up Now</button>
 
         {/* Hamburger → Cross */}
         <div
@@ -128,7 +142,7 @@ const LandingPage = () => {
       </ul>
 
 
-        <button className="drawer-cta">Sign Up Now</button>
+        <button className="drawer-cta" onClick={() => setIsOpen(true)}>Sign Up Now</button>
       </aside>
 
 
@@ -159,7 +173,7 @@ const LandingPage = () => {
             </div>
           </div>
 
-          <button className="hero-btn">Enroll Now</button>
+          <button className="hero-btn" onClick={() => setIsOpen(true)}>Enroll Now</button>
 
           <p className="hero-disclaimer">
             Disclaimer: Forex trading involves risk. Education does not guarantee
@@ -384,7 +398,7 @@ const LandingPage = () => {
         <div className="footer-cta">
           <h4>Start Learning</h4>
           <p>Join ForexLearn and build real market understanding.</p>
-          <button className="footer-btn">Enroll Now</button>
+          <button className="footer-btn" onClick={() => setIsOpen(true)}>Enroll Now</button>
         </div>
 
       </div>
@@ -407,7 +421,7 @@ const LandingPage = () => {
         </p>
       </div>
 
-
+      <ContactPopup isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
   );
 };

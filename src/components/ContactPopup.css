@@ -1,0 +1,281 @@
+/* BUTTON THAT OPENS POPUP */
+.open-popup-btn {
+    background: #f16c20;
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+    font-weight: 600;
+  }
+  
+  .open-popup-btn:hover {
+    background: #d55a1c;
+  }
+  
+  /* OVERLAY */
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(4, 25, 62, 0.85);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeIn 0.2s ease-in-out;
+    padding: 20px; /* prevents popup cut-off on ultra small screens */
+  }
+  
+  /* POPUP BOX */
+  .popup-box {
+    width: 420px;
+    max-width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(241, 108, 32, 0.3);
+    border-radius: 18px;
+    padding: 35px;
+    color: white;
+    backdrop-filter: blur(12px);
+    position: relative;
+    animation: popIn 0.3s ease;
+    box-shadow: 0 8px 30px rgba(241, 108, 32, 0.2);
+  }
+  
+  /* CLOSE BUTTON */
+  .close-popup {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  
+  .close-popup:hover {
+    opacity: 1;
+  }
+  
+  /* TITLE */
+  .popup-title {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #fff;
+  }
+  
+  .popup-sub {
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-bottom: 25px;
+  }
+  
+  /* FORM ELEMENTS */
+  .popup-form input,
+  .popup-form textarea {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(241, 108, 32, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    margin-bottom: 15px;
+    outline: none;
+    font-size: 1rem;
+  }
+  
+  .popup-form input::placeholder,
+  .popup-form textarea::placeholder {
+    color: gray;
+  }
+  
+  /* SUBMIT BUTTON */
+  .popup-submit {
+    width: 100%;
+    background: #f16c20;
+    color: #fff;
+    padding: 14px 0;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .popup-submit:hover {
+    background: #d55a1c;
+  }
+
+  /* Phone input container */
+.phone-row {
+    display: flex;
+    gap: 10px; /* space between code and number */
+    margin-bottom: 15px;
+  }
+  
+  /* Country code input */
+  .country-code {
+    flex: 0 0 80px; /* fixed small width */
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(241, 108, 32, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  /* Phone number input */
+  .phone-number {
+    flex: 1; /* take remaining space */
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(241, 108, 32, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  /* Placeholder styling */
+  .country-code::placeholder,
+  .phone-number::placeholder {
+    color: #eee;
+  }
+  
+
+  .thankyou-card {
+    position: relative;
+    background: transparent;
+    color: white;
+    padding: 30px 20px;
+    border-radius: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .thankyou-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: #f16c20; /* orange color for envelope */
+  }
+  
+  .thankyou-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  
+  .thankyou-text {
+    font-size: 1rem;
+    font-family: "Arial", sans-serif; /* different font than heading */
+    opacity: 0.85;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  .thankyou-text span {
+    font-size: 1rem;
+    color: #f16c20;
+    font-family: "Cursive", "Comic Sans MS", cursive; 
+    font-style: italic; 
+    opacity: 0.85;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+
+
+
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .phone-input-group {
+      gap: 6px;
+    }
+    .country-code {
+      flex: 0 0 60px;
+      padding: 12px;
+      font-size: 0.9rem;
+    }
+    .phone-number {
+      padding: 12px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  
+  /* ANIMATIONS */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  /* RESPONSIVE BREAKPOINTS */
+  
+  /* Tablets */
+  @media (max-width: 768px) {
+    .popup-box {
+      width: 95%;
+      padding: 28px;
+    }
+    .popup-title {
+      font-size: 1.4rem;
+    }
+    .popup-submit {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Small Mobile */
+  @media (max-width: 480px) {
+    .popup-box {
+      padding: 22px;
+      border-radius: 14px;
+    }
+    .popup-title {
+      font-size: 1.3rem;
+    }
+    .popup-sub {
+      font-size: 0.85rem;
+    }
+    .popup-form input,
+    .popup-form textarea {
+      font-size: 0.9rem;
+      padding: 12px;
+    }
+  }
+  
+  /* Ultra Small Devices (Foldables, 320px width) */
+  @media (max-width: 360px) {
+    .popup-box {
+      padding: 18px;
+    }
+    .popup-title {
+      font-size: 1.15rem;
+    }
+    .popup-sub {
+      font-size: 0.8rem;
+    }
+    .popup-submit {
+      padding: 12px 0;
+      font-size: 0.9rem;
+    }
+  }
+  
